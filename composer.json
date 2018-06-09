@@ -1,0 +1,10 @@
+{
+    "name": "housseem/training-php-certif",
+    "authors": [
+        {
+            "name": "Houssem Zitoun",
+            "email": "houssemzitoun91@gmail.com"
+        }
+    ],
+    "require": {}
+}
