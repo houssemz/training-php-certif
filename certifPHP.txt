@@ -1,0 +1,198 @@
+- L'ordre des variables dans les fonctions implode, explode, compact, array, strpos !!!
+- les requêtes xpath
+
+- XML : (n'est pas la partien la + imortante)
+    - les extensions XML à connaître : 
+       - simple_xml => les plus importants c'est les fonctions XML et comment les manipuler
+       - simple_xml requiert LIBXML_EXTENSION
+
+       exp de questions : quelles les fcts qui permettent de lire un fichier XML ?
+       
+ 
+ - POO : (partie très importante)
+ 
+ - SOAP : (plus imporant que le XML)
+ 
+ - REST : 
+    - status codes : 200, 201, ..
+  
+ - l'ext curl (vous aurez des questions sur curl !!)
+ 
+ - json : 
+    json_decode retourne un object stdClass (lol)
+  
+ - date : (moins de 10 questions)
+    les formats des dates, la liste des constantes des dates 
+    - add(), setDate, setTime, ....
+    - alias de new DateTime est date_create
+    - DateInterval
+    var_dump(date_create('2018-04-31')); // le 1 mars! et juste pour les jours et les jours max c'est 31!
+    date_create('2018-04-31')->format('U') => format Unix Timestamp
+    
+    pour qu'un object peut être transformé en json il faut implementer l'interface JSON_SERIALIZABLE
+    
+    
+ - <?var klkfl ?> => balise XML valide !
+ 
+ - save vs saveXML dans DomDocument
+ 
+ - dom_import_simplexml() vs simplexml_import_dom() !
+ - file_put_contents() => savoir aussi les parm et les flags
+ 
+ ** Les arrays **
+ - il faut connaitre array_slice(), array_shift(), array_push(), array_unshift(), array_pop(), array_walk(), array_exist(), array_values(), ...
+ - ... les fonctions de tri de tableau : sort, unsort, natsort, ...
+ - array_merge() (là où il y a des pieges
+ 
+ - La classe SPL (travailler sur des objects comme étant des arrays ;)) il faut la voir aussi! 
+ 
+    req : les arrays sont passés par réference ;)
+ 
+ - $x = ["a" => 1, "a" => "33"];
+    php > var_dump($x);
+        array(1) {
+          ["a"]=>
+          string(2) "33"
+        }
+    
+    $a = array(.....);
+    foreach ($a as $key => $value) {
+        // si le $value est un objet ou un array => $value est par réf sinon elle est par valeur
+    }
+    
+    foreach ($a ... $i++) {
+        // $a[i] est toujours par réf 
+    }
+    
+  - array opérations (voir la doc) :
+    - var_dump(['a', 'b', 'c'] < ['b', 'c', 'd']); // true 
+  
+  - Files and files system :
+    fopen, fwrite, ...
+    chmod(), basename(), file_exists(), fputs(), rename(), usmask(), glob ....
+    usmask() => peut être dans l'examen !get
+    
+    fgetcsv => lit un fichier CSV
+    glog    => glob("**/*.php"); tous les fichiers ds les dossiers et les sous dossiers
+    
+  - Streams (qq chose d'imortant)
+    - stream filters
+    - les streams c'est beaucoup moins de consommation en terme de mémoire et c'est portable dans le sens où il va foctionner sur autre chose que des fichiers
+    
+  
+  ** Les fonctions
+  - par valeur (par défaut)
+  
+  - les closures : class used to represent anonymous functions
+  
+  
+ ** POO
+ - converting obj to strings : __toString()
+ - serializing objects
+ 
+ - Dans une classe abstraite on peut avoir des méthodes finales mais une classe abstraite est finale non
+ 
+ - Les exceptions:
+        $e = new Exception($msg, $code, $parent);
+        
+ - Il y a des questions sur la visiblité des méthodes
+ 
+ - Relfexion (utilisé dans les annotations de Doctrine par exp)
+ 
+ - Late Static binding à voir aussi : static (l'objet en cours) vs slef
+ 
+ - la méthode __get ,  __set, __isset
+ 
+ - Question : qu'est ce qui vous permet de conter le nombre d'elemnts d'un objet => coutable et iteraotr !
+ - Des questions aussi sur SPL on peut avoir dans la certif : ArrayIterator, RecursiceIteratorIterator, FileIterator, SplObserver (un peu rare)
+              
+ - Rq : les iterators parade de travailler pour trvailler avec des array d'un certain type ;)
+ - On peut avoir les generateurs : yield
+ - des questions pour les traits
+ 
+ Rq : Refection cannot modify static var in functions car la reflection ne pauet pas  modifer le coeur des fcnts
+        SPLObjectStarage => à voir aussi
+        
+  EXP :
+    class A {
+    // classe vide
+    }
+    $a = new A();
+    $test = $a->prop;
+    var_dump($test); // NULL et pas d'erreur ni de warning !!
+    
+** BDD
+  - prepared statements : les req sont parsées une seule fois (performance)
+  - transactions : 
+        combiner plusieurs opérations sur la BD
+  - PDO : (une question sur l'acronyme du PDO !)
+        - il faut connaitre le bind
+        
+   Rq : (bool) de tous ce qui diff de 0 c 1 !
+   
+** Security
+  - Question : open_basedir c quoi !?
+        tout ce qui en dehors de open_basedir n'est plus visible !
+        
+  - On peut avoir des questions sur les sessions !!
+    session.use_only_cookies = 1 pour désactiver le use du js pour les sessions php
+  - openOuth, jwt => alternatif (5ir selon le formateur) aux sessions 
+  
+  - les failles de security:
+    XSS : htmlspecialchars(), htmlentities(), strip_tags() <= contre-mesures
+          whitelisting is effective, backlisting not
+    CSRF : contre-mesures => créer une requête à partir du navigateur de user sans que le user le sait
+        use a uniq form key
+    sql injection : contre-mesures => des req préparées
+        Question : addshases() SUFFISANT TOUJOURS pour contre-mesurer ? => non pas tjrs !
+    mail injection : 
+  
+  - Toutes données en entrée doit être controlées !
+    règele d'or : filtrer puis valider ;) !
+    
+  - htmlspe..., strip_tags() sur sur sur dans la certif
+  
+  - L'upload des fichiers :
+    tjours valider le cotenu + min type
+  
+  - Le stockage de données :
+    Faire attentions tjs des provilèges des users : Un simple user ne peut pas supprimer des tables
+    Ne PAS OUVRIR LE PORT DE LA BASE AU WEB : ne pas exposé le 3306
+    CRYPTER les données sensibles TJOURS
+    Read the logs loool !
+    
+  - SSL à voir aussi
+  
+  - Les sessions:
+    session.save_handler = memcache // au lieu de stockage dans des fichiers on les stocke ds des serveurs comme Redis par exp ;)
+    session..... = l'url de(s) serveur(s)
+  - les cookies => des questions sur les param de setcookie()
+                    $name, $httponly, ....!!
+                => tjours dans le headers
+    si la taille de cookie est très grande quelle l'errer http ? => 
+    
+  - les forms aussi
+  
+  - Les superglobals :
+    $_POST => all POST data + POST METHOD
+    $_GET => all GET data + Get Method
+    $_REQUEST => POST + GET + cookies <= non recommandée !
+    $_FILES array contains all uplaoded file inforations
+    $_COOKIE
+    
+  - urlencode() => url as one item
+  
+  - Http authentification on peut avoir des questions
+    par exp les types d'auth : AUTH_TYPE
+   
+   - Il faut voir serialize & unserializ !
+   
+** Error levels
+   - par default c'est E_All
+   - en prod dispplay_erros = off et log_error = on
+   - question : comment declarer le user handler customisé => set_error_handler()
+   
+   exp : 
+   for ($array as &$val) {
+   
+   // en dehors du for ca va être modifiée mm en dehors du code

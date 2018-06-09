@@ -1,0 +1,7 @@
+- Simply doing if ($x) whie $x is not defined will generate an error of level E_NOTICE
+- A <=> B: return -1 if A > B
+                   0 if A == B
+                   1 if A < B
+- Echo vs Print :
+    The major differences to print are that echo accepts an argument list and doesn't have a return value.
+ 

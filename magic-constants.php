@@ -1,0 +1,16 @@
+<?php
+
+
+echo __DIR__, PHP_EOL;
+echo __FILE__, PHP_EOL;
+echo __LINE__, PHP_EOL;
+
+echo __FUNCTION__, PHP_EOL;
+echo __NAMESPACE__, PHP_EOL;
+
+
+echo PHP_VERSION, PHP_EOL;
+echo PHP_OS, PHP_EOL;
+echo PHP_CONFIG_FILE_PATH, PHP_EOL;
+
+echo DIRECTORY_SEPARATOR, PHP_EOL;
