@@ -15,10 +15,10 @@ foreach ($arr as $key => $value) {
 
 
 $array = [
-	[1, 2],
-	[3, 4]
+    [1, 2],
+    [3, 4]
 ];
 
 foreach ($array as list($a, $b)) {
-	echo $a, ' -- ', $b, PHP_EOL;
+    echo $a, ' -- ', $b, PHP_EOL;
 }

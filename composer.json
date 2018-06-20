@@ -6,7 +6,10 @@
       "email": "houssemzitoun91@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "squizlabs/php_codesniffer": "*",
+    "friendsofphp/php-cs-fixer": "^2.12"
+  },
   "autoload": {
     "psr-4": {
       "App\\": "src/",

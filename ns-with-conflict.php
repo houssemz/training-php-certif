@@ -6,5 +6,4 @@ use another\Thing as MyClass;
 
 class MyClass
 {
-
 }

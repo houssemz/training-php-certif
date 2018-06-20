@@ -4,8 +4,8 @@ $a = '$GLOBALS["a"]';
 
 function foo()
 {
-	global $a;
-	echo $$a;
+    global $a;
+    echo $$a;
 }
 
 echo $GLOBALS["a"], PHP_EOL;

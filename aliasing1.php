@@ -14,5 +14,5 @@ use const My\Full\TEST as T;
 echo T, PHP_EOL;
 
 use function My\Full\func as myFunc;
-myFunc();
 
+myFunc();

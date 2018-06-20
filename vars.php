@@ -2,6 +2,3 @@
 
 $color = "green";
 $fruit = "apple";
-
-
-

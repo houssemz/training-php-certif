@@ -21,5 +21,3 @@ var_dump($a === $b, $y); // flase et false !
 
 $z = ('123a' == 123);
 var_dump($z, '123a' == 123); // true !
-
-

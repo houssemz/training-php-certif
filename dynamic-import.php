@@ -12,4 +12,3 @@ echo Another::class, PHP_EOL;
 // Will not work
 //$a = 'Another';
 //new $a;
-

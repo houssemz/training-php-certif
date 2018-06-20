@@ -4,5 +4,5 @@ return 'hello';
 
 function foo()
 {
-	return 'I am foo function';
+    return 'I am foo function';
 }

@@ -17,12 +17,12 @@ echo PHP_EOL;
  */
  namespace FOO;
 
-class Bar 
+class Bar
 {
-	public function getMyNS()
-	{
-		echo __NAMESPACE__, PHP_EOL;
-	}
+    public function getMyNS()
+    {
+        echo __NAMESPACE__, PHP_EOL;
+    }
 }
 
 (new Bar())->getMyNS();

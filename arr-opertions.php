@@ -1,14 +1,14 @@
 <?php
 
 $a = [
-	'a' => 'apple',
-	'b' => 'banana',
+    'a' => 'apple',
+    'b' => 'banana',
 ];
 
 $b = [
-	'a' => 'pear',
-	'b' => 'strawberry',
-	'c' => 'cherry',
+    'a' => 'pear',
+    'b' => 'strawberry',
+    'c' => 'cherry',
 ];
 
 $c = $a + $b;

@@ -1,6 +1,6 @@
 <?php
 // Ne fonctionne pas, évalué comme include(('vars.php') == TRUE), i.e. include('')
-if (include ('vars.php') == true) {
+if (include('vars.php') == true) {
     echo 'OK';
 }
 
